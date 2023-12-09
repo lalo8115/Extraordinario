@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirmar correo</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <h2>Confirmar Cuenta</h2>
+      <p>
+        Por favor, checa tu correo electrónico y haz click en el boton de
+        confirmar.
+      </p>
+      <ion-button
+        type="submit"
+        (click)="authService.SendVerificationMail()"
+        expand="block"
+      >
+        Volver a enviar codigo de verificacion
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

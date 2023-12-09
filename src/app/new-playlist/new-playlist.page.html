@@ -1,0 +1,74 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense" class="ion-margin-top">
+    <ion-toolbar>
+      <ion-button
+        [routerLink]="['/dashboard']"
+        size="small"
+        color="transparent"
+      >
+        <ion-icon
+          class="icon-back"
+          name="icon-back"
+          size="large"
+          name="chevron-back-outline"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-title size="medium" color="light">Crea una playlist</ion-title>
+      <ion-back-button></ion-back-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <form
+    (ngSubmit)="createPlaylist()"
+    #newPlaylistForm="ngForm"
+    class="ion-padding"
+  >
+    <ion-item>
+      <ion-label color="light" position="stacked"
+        >Nombre de la playlist</ion-label
+      >
+      <ion-input
+        [(ngModel)]="playlistName"
+        name="playlistName"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="stacked" color="light"
+        >Imagen de la playlist</ion-label
+      >
+      <ion-button (click)="triggerFileInputClick()">
+        <ion-icon name="image-outline"></ion-icon>
+        <ion-label class="ion-margin-start">Seleccionar imagen</ion-label>
+      </ion-button>
+
+      <input
+        type="file"
+        style="display: none"
+        #fileInput
+        (change)="onFileSelected($event)"
+        accept="image/*"
+      />
+    </ion-item>
+
+    <!-- Mostrar mensajes de validación si es necesario -->
+    <div
+      *ngIf="newPlaylistForm.controls['playlistName']?.invalid && newPlaylistForm.controls['playlistName']?.touched"
+    >
+      <ion-text color="danger"
+        >El nombre de la playlist es obligatorio.</ion-text
+      >
+    </div>
+
+    <ion-button
+      shape="round"
+      class="submit-button ion-margin-top"
+      expand="full"
+      type="submit"
+      [disabled]="newPlaylistForm.invalid"
+      >{{ isLoading ? 'Cargando...' : 'Crear'}}</ion-button
+    >
+  </form>
+</ion-content>

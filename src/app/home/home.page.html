@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img src="assets/IMG_2756.png" alt="logo" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-text color="secondary">
+          <h1>Millones de canciones en un solo lugar</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <ion-button [routerLink]="['/login']" expand="block" color="primary"
+          >Inicia sesión</ion-button
+        >
+        <br />
+
+        <ion-button
+          [routerLink]="['/registration']"
+          expand="block"
+          color="secondary"
+          >Registro</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

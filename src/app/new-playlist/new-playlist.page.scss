@@ -1,0 +1,21 @@
+.submit-button {
+  width: min-content;
+  margin: auto;
+  margin-top: 60px;
+}
+
+ion-item {
+  --inner-padding-end: 0px;
+  --padding-start: 0px;
+  border-radius: 4px;
+}
+
+ion-input {
+  --background: #777;
+  --border-radius: 1rem;
+  --color: white;
+
+  padding: 10px;
+
+  border-radius: 4px;
+}

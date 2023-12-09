@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title size="medium">Crear una cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br />
+<br />
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="stacked">¿Cuál es tu correo?</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="stacked">Elige tu contraseña</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="stacked">¿Cómo te llamas?</ion-label>
+      <ion-input type="text" #displayName required></ion-input>
+    </ion-item>
+    <ion-row class="button-row">
+      <ion-col>
+        <ion-button
+          type="submit"
+          (click)="signUp(email, password, displayName)"
+          expand="block"
+          >Crear cuenta</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

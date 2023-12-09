@@ -1,0 +1,91 @@
+<ion-content>
+  <ion-grid class="gradient">
+    <br /><br />
+    <br /><br />
+
+    <ion-row class="image-container">
+      <ion-img
+        class="image"
+        src='{{ authService?.userData?.displayName ? "https://firebasestorage.googleapis.com/v0/b/ionic-spotify.appspot.com/o/user_images%2F"+authService?.userData.uid+"?alt=media&token=01fdeaeb-c3e2-44e0-a0c4-646f1285fdc8?" + timeSeed : DEFAULT_USER_IMAGE }}'
+      ></ion-img>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-label> {{ authService?.userData?.displayName }} </ion-label>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-button
+        color="medium"
+        size="small"
+        shape="round"
+        class="ion-no-padding ion-padding-start ion-padding-end"
+        (click)="triggerFileInputClick()"
+      >
+        Cambiar foto
+      </ion-button>
+      <input
+        type="file"
+        style="display: none"
+        #fileInput
+        (change)="onFileSelected($event)"
+        accept="image/*"
+      />
+    </ion-row>
+
+    <ion-row class="user-stats ion-margin-top">
+      <ion-col size="5">
+        <ion-row class="ion-justify-content-center user-stats-value"
+          >{{ this.playlists?.length ?? 0 }}</ion-row
+        >
+        <ion-row class="ion-justify-content-center"> PLAYLISTS </ion-row>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-row class="ion-justify-content-center user-stats-value"
+          >58</ion-row
+        >
+        <ion-row class="ion-justify-content-center"> SEGUIDORES </ion-row>
+      </ion-col>
+
+      <ion-col size="5">
+        <ion-row class="ion-justify-content-center user-stats-value"
+          >43</ion-row
+        >
+        <ion-row class="ion-justify-content-center"> SIGUIENDO </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-label class="ion-padding ion-margin-bottom">Playlists</ion-label>
+  <ion-list class="ion-margin-top">
+    <ion-item *ngFor="let playlist of playlists" no-lines>
+      <ion-img [src]="playlist.image" class="playlist-image"></ion-img>
+      <ion-label>{{ playlist.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-button
+      shape="round"
+      [routerLink]="['/new-playlist']"
+      expand="block"
+      class="create-button"
+    >
+      <ion-label color="primary"> Agregar playlist </ion-label>
+      <ion-icon name="add-outline" color="primary"></ion-icon>
+    </ion-button>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-end ion-margin-top ion-padding">
+    <ion-button
+      type="submit"
+      color="danger"
+      size="small"
+      shape="round"
+      (click)="authService.SignOut()"
+      expand="block"
+      >Cerrar sesión</ion-button
+    >
+  </ion-row>
+</ion-content>

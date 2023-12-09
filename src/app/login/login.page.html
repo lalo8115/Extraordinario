@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title size="medium">Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<br />
+<br />
+
+<ion-content>
+  <section>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="stacked">¿Cuál es tu correo?</ion-label>
+        <ion-input type="text" #email required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="stacked">¿Cuál es tu contraseña?</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      </ion-item>
+    </form>
+    <br />
+    <br />
+    <br />
+    <ion-row>
+      <ion-col>
+        <ion-button
+          type="submit"
+          (click)="logIn(email, password)"
+          expand="block"
+          >Iniciar sesión</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </section>
+</ion-content>

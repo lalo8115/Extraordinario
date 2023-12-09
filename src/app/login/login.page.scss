@@ -1,0 +1,42 @@
+ion-toolbar,
+ion-item,
+ion-content,
+ion-header,
+form {
+  --color: white;
+  background-color: #121212;
+}
+
+ion-header {
+  position: relative;
+  top: 24px;
+}
+
+ion-title {
+  background-color: #121212;
+}
+
+section {
+  padding: 2rem;
+  padding-top: 0;
+}
+
+ion-item {
+  --inner-padding-end: 0px;
+  --padding-start: 0px;
+  border-radius: 4px;
+}
+
+ion-input {
+  --background: #777;
+  --border-radius: 1rem;
+  --color: white;
+
+  padding: 10px;
+
+  border-radius: 4px;
+}
+
+.button-row {
+  margin-top: 2rem;
+}
